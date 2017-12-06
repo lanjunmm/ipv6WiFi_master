@@ -3,7 +3,7 @@ const Record = require('../../models/record');
 var allData;
 var temp=[];
 
-function samePosFilter(dataList) { //过滤相同点???
+function samePosFilter(dataList) { //这里是对同一个id过滤相同点???
 	var map = {};
 	var results = [];
 	dataList.forEach(item => {
@@ -91,7 +91,7 @@ function classify(dataList) {
         num=num+1;
     }); //所有种类的wifi名
     dataSet.forEach(itm=>{
-      itm.data= Filter(itm.data);
+      itm.data= Filter(itm.data);//对每个id过滤坐标相同的点
       itm=JSON.stringify(itm);
     });
     return dataSet;

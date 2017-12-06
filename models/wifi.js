@@ -31,7 +31,7 @@ Wifi.props = {
 
 
 Wifi.prototype.save = function (callback) {
-  console.log("wifi表调用");
+  // console.log("wifi表调用");
   db.query('INSERT wifi SET ?', [this], function (err) {
     if (err) {
       console.log(err);
@@ -44,7 +44,7 @@ Wifi.prototype.save = function (callback) {
 
 Wifi.getBySSID = function (SSID, callback) {
   db.query('SELECT * FROM wifi WHERE SSID=?', [SSID], (err, results) => {
-    console.log(results);
+    // console.log(results);
     callback(err, results);
   });
 }

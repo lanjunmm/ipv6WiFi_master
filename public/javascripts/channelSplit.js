@@ -37,7 +37,7 @@ $.ajax({
         console.log('fetchChannelSuccess');
         // chjsonData=data;
         channelData=data;
-        console.log(channelData);
+        // console.log(channelData);//注释
     }
 });
 }//获取数据
@@ -135,17 +135,17 @@ function addClicks(id,points) {
 }
 
 function view() {
+    let count=3000;//标记频率下的wifi名
     channelData.forEach(item=>{
         let liId="li"+item.frequency;
         $("#accordion").append("<li id="+liId+"></li>");
         liId="#"+liId;
         let divId="div"+item.frequency;
-        $(liId).append(" <div class=\"link\" id="+divId+"><i class=\"fa fa-signal\"></i>>"+item.frequency+"<i class=\"fa fa-chevron-down\"></i></div> <ul class=\"submenu\" id="+item.frequency+"></ul>");
+        $(liId).append(" <div class=\"link\" id="+divId+"><i class=\"fa \"></i>"+item.frequency+"<i class=\"fa fa-chevron-down\"></i></div> <ul class=\"submenu\" id="+item.frequency+"></ul>");
         let freId="#"+item.frequency;
         let allCoordinate=[];
-        let count=0;//标记频率下的wifi名
         item.data.forEach(i=>{
-            let aId=item.frequency+count;
+            let aId=count;
             $(freId).append("<li><a id="+aId+">"+i.name+"</a></li>");
             addClicks(aId,i.coor);
             i.coor.forEach(everyPo=>{

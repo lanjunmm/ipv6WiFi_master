@@ -63,7 +63,7 @@ function channelClassify(chjsonData) {
                                 flag=1;
                             }
                         }
-                        if (flag===0){
+                        if (flag===0){//如果出现过但在该频道不存在
                             let nObj=newObj(item);
                             da.data.push(nObj);
                         }
@@ -74,7 +74,7 @@ function channelClassify(chjsonData) {
 
     }); //所有种类的wifi名
     dataSet.forEach(item=>{
-        item.data.forEach(i=>{
+        item.data.forEach(i=>{ //对每个频道内的每个id过滤相同点
             i.coor=samePosFilter(i.coor);
         })
     });
@@ -82,7 +82,6 @@ function channelClassify(chjsonData) {
 }//按照信道分数据
 
 function channel(req ,res,next) {
-    let ssid='hhhh';
     let chnData=[];
     Record.getListBySSID((err, results) => {
         if (err) {

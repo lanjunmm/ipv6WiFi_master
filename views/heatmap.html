@@ -12,43 +12,25 @@
        <link rel="stylesheet" type="text/css" href="/stylesheets/dialoag.css">
    </head>
    <body style="height: 100%; margin: 0">
-   <header id="changeView" onclick="changeView()">
-       <button><i class="fa fa-exchange"></i></button>
+   <header>
+       <button id="changeView" onclick="changeView()"><i class="fa fa-exchange"></i></button>
        <button id="right"><i class="fa fa-plus-square-o"></i></button>
    </header>
    <div id="main" style="display: flex">
-       <div id="list" style="width: 200px;height: 1000px;background-color: #0AA699;opacity: 0.3">
+       <div id="list" style="width: 200px;height: 1000px;background-color: #0AA699;">
            <!--<input  type="button" class="link" id="changeView" onclick="changeView()" value="点这里按信道划分"/>-->
            <ul id="accordion" class="accordion">
-               <li>
-                   <div class="link"><i class="fa fa-signal"></i>>=50<i class="fa fa-chevron-down"></i></div>
-                   <ul class="submenu" id="fifty"></ul>
-               </li>
-               <li>
-                   <div class="link"><i class="fa fa-signal"></i>>=30<i class="fa fa-chevron-down"></i></div>
-                   <ul class="submenu" id="thirty"></ul>
-               </li>
-
-               <li>
-                   <div class="link"><i class="fa fa-signal"></i>>=10<i class="fa fa-chevron-down"></i></div>
-                   <ul class="submenu" id="ten"></ul>
-               </li>
-
-               <li>
-                   <div class="link"><i class="fa fa-signal"></i>校园网<i class="fa fa-chevron-down"></i></div>
-                   <ul class="submenu" id="school"></ul>
-               </li>
-               <li>
-                   <div class="link"><i class="fa fa-signal"></i>>其他wifi<i class="fa fa-chevron-down"></i></div>
-                   <ul class="submenu" id="others"></ul>
-               </li>
-               <li>
-                   <div class="link"><i class="fa fa-signal"></i>>=1<i class="fa fa-chevron-down"></i></div>
-                   <ul class="submenu" id="one"></ul>
-               </li>
+               <!--<li>-->
+                   <!--<div class="link"><i class="fa fa-signal"></i>校园网<i class="fa fa-chevron-down"></i></div>-->
+                   <!--<ul class="submenu" id="school"></ul>-->
+               <!--</li>-->
+               <!--<li>-->
+                   <!--<div class="link"><i class="fa fa-signal"></i>>其他wifi<i class="fa fa-chevron-down"></i></div>-->
+                   <!--<ul class="submenu" id="others"></ul>-->
+               <!--</li>-->
            </ul>
        </div>
-       <div id="container" style="width:1300px;height: 700px"></div>
+       <div id="container" style="width:1400px;height: 760px"></div>
    </div>
    <!--分分分分分分分割线-->
    <div class="box">
@@ -117,8 +99,8 @@
                    visualMap: {
                        show: false,
                        top: 'top',
-                       min: 0,
-                       max: 5,
+                       min: 3.5,
+                       max: 7,
                        seriesIndex: 0,
                        calculable: true,
                        inRange: {
