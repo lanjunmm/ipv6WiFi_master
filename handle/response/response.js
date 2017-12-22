@@ -1,5 +1,6 @@
 const fs=require('fs');
 const Record = require('../../models/record');
+var coordtransform=require('coordtransform');
 var allData;
 var temp=[];
 
@@ -18,8 +19,14 @@ function samePosFilter(dataList) { //这里是对同一个id过滤相同点???
 	results.forEach(item => {
 		item[2] = map[item[0]+item[1]];
 		item[2]=(+item[2]+100)/100;
-		item[0] = Number(item[0])+0.011082;
-		item[1] = Number(item[1])+0.003624;//定位位置目测是因为有偏差，加上一个常数之后把它挪回来？？
+        //wgs84转国测局坐标
+        let wgs84togcj02 = coordtransform.wgs84togcj02(Number(item[0]),Number(item[1]));
+        //国测局坐标转百度经纬度坐标
+        let gcj02tobd09 = coordtransform.gcj02tobd09(wgs84togcj02[0],wgs84togcj02[1]);
+        item[0]=gcj02tobd09[0];
+        item[1]=gcj02tobd09[1];
+		// item[0] = Number(item[0])+0.011082;
+		// item[1] = Number(item[1])+0.003624;//定位位置目测是因为有偏差，加上一个常数之后把它挪回来？？
 	});
 	return results;
 }
@@ -61,8 +68,10 @@ function Filter(dataList) {
     results.forEach(item => {
         item[2] = map[item[0]+item[1]];
         item[2]=(+item[2]+100)/100;
-        item[0] = Number(item[0])+0.011082;
-        item[1] = Number(item[1])+0.003624;//定位位置目测是因为有偏差，加上一个常数之后把它挪回来？？
+        item[0] = Number(item[0]);
+        item[1] = Number(item[1]);//定位位置目测是因为有偏差，加上一个常数之后把它挪回来？？
+        // item[0] = Number(item[0])+0.011082;
+        // item[1] = Number(item[1])+0.003624;//定位位置目测是因为有偏差，加上一个常数之后把它挪回来？？
     });
     return results;
 }

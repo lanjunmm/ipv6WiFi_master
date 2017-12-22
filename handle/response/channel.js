@@ -17,8 +17,10 @@ function samePosFilter(dataList) {
     results.forEach(item => {
         item[2] = map[item[0]+item[1]];
         item[2]=(+item[2]+100)/5;
-        item[0] = Number(item[0])+0.011082;
-        item[1] = Number(item[1])+0.003624;//定位位置目测是因为有偏差，加上一个常数之后把它挪回来？？
+        item[0] = Number(item[0]);
+        item[1] = Number(item[1]);//定位位置目测是因为有偏差，加上一个常数之后把它挪回来？？
+        // item[0] = Number(item[0])+0.011082;
+        // item[1] = Number(item[1])+0.003624;//定位位置目测是因为有偏差，加上一个常数之后把它挪回来？？
     });
     return results;
 }//过滤相同点???
